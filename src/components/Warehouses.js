@@ -3,8 +3,9 @@ import {Table} from 'reactstrap';
 import {Row} from "./Row";
 import WarehouseService from "../services/WarehouseService";
 import {EventEmitter} from "../events";
-import {WarehouseForm} from "./WarehouseForm/WarehouseForm";
+import {WarehouseForm} from "./WarehouseForm";
 import {constants} from "../constants/constants";
+import '../App.css'
 
 /**
  * Represents a table of warehouses.
@@ -45,7 +46,7 @@ class Warehouses extends Component {
                     <tbody>
                         {
                             this.state.warehouses.map((warehouse) =>
-                            <Row style={this.state.warehouse?.warehouseId === warehouse.warehouseId ? {backgroundColor: 'lightblue'} : null}
+                            <Row className="blue-background"
                                  warehouse={warehouse} key={warehouse.warehouseId}/>)
                         }
                     </tbody>

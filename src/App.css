@@ -10,3 +10,7 @@
 .pointer-cursor {
     cursor: pointer !important;
 }
+
+.blue-background {
+    background-color: lightblue !important;
+}
