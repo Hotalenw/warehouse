@@ -6,3 +6,7 @@
         50%
     ;
 }
+
+.pointer-cursor {
+    cursor: pointer !important;
+}
