@@ -6,7 +6,7 @@ import {constants} from "../constants/constants";
 /**
  * Represents a single row of our warehouse data.
  */
-export class Row extends Component {
+export class WarehouseRow extends Component {
     warehouse = this.props.warehouse;
     render() {
         return (
