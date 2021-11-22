@@ -1,0 +1,78 @@
+{
+  "warehouses": [
+    {
+      "id": "01",
+      "warehouseId": "01",
+      "warehouseName": "Data Warehouse",
+      "warehouseDescription": "This is where we keep our data.",
+      "warehouseAddress": {
+        "buildingName": "Data Emporium",
+        "streetLine1": "101 crazy way",
+        "city": "Raleigh",
+        "stateProvince": "NC",
+        "zipPostalCode": "27538",
+        "country": "USA"
+      }
+    },
+    {
+      "id": "02",
+      "warehouseId": "02",
+      "warehouseName": "Beach Supply Warehouse",
+      "warehouseDescription": "Gotta have a beach supply warehouse.",
+      "warehouseAddress": {
+        "buildingName": "Beaches WH",
+        "streetLine1": "",
+        "streetLine2": "",
+        "city": "",
+        "stateProvince": "",
+        "zipPostalCode": "",
+        "country": ""
+      }
+    },
+    {
+      "id": "04",
+      "warehouseId": "04",
+      "warehouseName": "Hat Warehouse",
+      "warehouseDescription": "We've got the hats.",
+      "warehouseAddress": {
+        "buildingName": "New Building name",
+        "streetLine1": "101 thisway",
+        "streetLine2": "",
+        "city": "",
+        "stateProvince": "",
+        "zipPostalCode": "",
+        "country": ""
+      }
+    },
+    {
+      "id": "05",
+      "warehouseId": "05",
+      "warehouseName": "Barbeque Warehouse",
+      "warehouseDescription": "Smokey meats is what we keep.",
+      "warehouseAddress": {
+        "buildingName": "BBQ Hanger",
+        "streetLine1": "1000 Smokey lane",
+        "streetLine2": "Suite 2A",
+        "city": "Holly Springs",
+        "stateProvince": "NC",
+        "zipPostalCode": "27540",
+        "country": "USA"
+      }
+    },
+    {
+      "id": "08",
+      "warehouseId": "08",
+      "warehouseName": "Roller Warehouse",
+      "warehouseDescription": "This Roller Skating Warehouse",
+      "warehouseAddress": {
+        "buildingName": "Roller Rink",
+        "streetLine1": "1000 Maple lane",
+        "streetLine2": "safdv",
+        "city": "hoboken",
+        "stateProvince": "Washingtion",
+        "zipPostalCode": "99994",
+        "country": ""
+      }
+    }
+  ]
+}

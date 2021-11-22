@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, useState} from 'react';
 import {Table} from 'reactstrap';
 import {Row} from "./Row";
 import WarehouseService from "../services/WarehouseService";
@@ -75,48 +75,53 @@ class Warehouses extends Component {
     }
 
     /**
-     * Removes a warehouse based on the provided id.
-     * @param warehouseId
-     */
-    removeWarehouse(warehouseId) {
-        // Here we would call an api to delete the warehouse , if there were one; mocking delete operation.
-        this.setState({warehouses: this.state.warehouses.filter((warehouse) => {return warehouse.warehouseId !== warehouseId})});
-    }
-
-    /**
      * Handles initiation of an edit operation.
      * @param warehouse is the warehouse that is being edited.
      */
     handleClickEdit(warehouse) {
-        // Here we would call an api to edit the warehouse , if there were one; mocking edit operation.
         this.setState({warehouseToEdit: warehouse});
     }
 
-    handleEdit(warehouse) {
-        this.setState({
-            ...this.state,
-            warehouses: Object.assign(this.state.warehouses, {warehouse})
-        });
-        this.clearWarehouseToEdit();
-    }
-
     /**
-     *
+     * Process the edit operation.
      * @param warehouse
-     * @returns {boolean}
      */
-    isSelected(warehouse) {
-        return this.state.warehouse?.warehouseId === warehouse.warehouseId;
+    handleEdit(warehouse) {
+        WarehouseService.getWarehouseServiceInstance().updateWarehouse(warehouse).then((res) => {
+            const updatedWarehouse = res.data;
+            if (updatedWarehouse) {
+                const warehouses = [...this.state.warehouses];
+                const idx = warehouses.findIndex((wh) => (warehouse.id === wh.id) );
+                if (idx) {
+                    warehouses[idx] = updatedWarehouse;
+                }
+                this.setState({warehouses});
+                console.log(this.state)
+                this.clearWarehouseToEdit();
+            }
+        });
     }
 
     getAllWarehouses() {
         WarehouseService.getWarehouseServiceInstance().getWarehouses().then((res) => {
             const warehouses = res.data;
             if (warehouses) {
-                this.setState({warehouses} )
+                this.setState({warehouses});
             }
         });
     }
+
+    /**
+     * Removes a warehouse based on the provided id.
+     * @param warehouseId
+     */
+    removeWarehouse(warehouseId) {
+        WarehouseService.getWarehouseServiceInstance().deleteWarehouse(warehouseId).then(() => {
+            // Here we would call an api to delete the warehouse , if there were one; mocking delete operation.
+            this.setState({warehouses: this.state.warehouses.filter((warehouse) => {return warehouse.warehouseId !== warehouseId})});
+        });
+    }
+
 }
 
 export default Warehouses;
