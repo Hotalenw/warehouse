@@ -90,8 +90,8 @@
       "warehouseId": "WPWzwJN"
     },
     {
-      "warehouseName": "Warehouse Name",
-      "warehouseDescription": "some description",
+      "warehouseName": "New warehouse",
+      "warehouseDescription": "description for edit",
       "warehouseAddress": {
         "buildingName": "",
         "streetLine1": "",
@@ -101,21 +101,7 @@
         "zipPostalCode": "",
         "country": ""
       },
-      "warehouseId": "PAf41n2"
-    },
-    {
-      "warehouseName": "Super secret warehouse",
-      "warehouseDescription": "",
-      "warehouseAddress": {
-        "buildingName": "",
-        "streetLine1": "",
-        "streetLine2": "",
-        "city": "",
-        "stateProvince": "",
-        "zipPostalCode": "",
-        "country": ""
-      },
-      "warehouseId": "7aPLQSv"
+      "warehouseId": "-RDifaR"
     }
   ]
 }

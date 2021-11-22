@@ -27,6 +27,7 @@ class Warehouses extends Component {
         EventEmitter.unsubscribe(constants.REMOVE_WAREHOUSE);
         EventEmitter.unsubscribe(constants.EDIT_WAREHOUSE);
         EventEmitter.unsubscribe(constants.UPDATE_WAREHOUSE);
+        EventEmitter.unsubscribe(constants.CREATE_WAREHOUSE);
     }
     render() {
         return (
@@ -68,10 +69,7 @@ class Warehouses extends Component {
      * Clears warehouses on edit in the state.
      */
     clearWarehouseToEdit() {
-        this.setState({
-            ...this.state,
-            warehouseToEdit: null
-        })
+        this.setState({warehouseToEdit: null});
     }
 
     /**
@@ -101,6 +99,9 @@ class Warehouses extends Component {
         });
     }
 
+    /**
+     * Gets all warehouses.
+     */
     getAllWarehouses() {
         WarehouseService.getWarehouseServiceInstance().getWarehouses().then((res) => {
             const warehouses = res.data;
@@ -122,6 +123,9 @@ class Warehouses extends Component {
         });
     }
 
+    /**
+     * Handle click of add new warehouse button.
+     */
     handleCreateClick() {
         this.setState({
             ...this.state,

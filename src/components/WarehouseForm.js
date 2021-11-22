@@ -19,8 +19,7 @@ export class WarehouseForm extends Component {
         city: this.props.warehouse.warehouseAddress?.city ?? '',
         stateProvince: this.props.warehouse.warehouseAddress?.stateProvince ?? '',
         zipPostalCode: this.props.warehouse.warehouseAddress?.zipPostalCode ?? '',
-        country: this.props.warehouse.warehouseAddress?.country ?? '',
-        submitDisabled: true
+        country: this.props.warehouse.warehouseAddress?.country ?? ''
     }
 
     render() {
@@ -122,9 +121,5 @@ export class WarehouseForm extends Component {
         } else {
             EventEmitter.dispatch(constants.CREATE_WAREHOUSE,this.state.warehouse);
         }
-    }
-
-    disableSubmit() {
-        return this.state.name !== '';
     }
 }
