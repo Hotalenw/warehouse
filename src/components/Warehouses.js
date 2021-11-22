@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {Table} from 'reactstrap';
+import {Button, Table} from 'reactstrap';
 import {WarehouseRow} from "./WarehouseRow";
 import WarehouseService from "../services/WarehouseService";
 import {EventEmitter} from "../events";
 import {WarehouseForm} from "./WarehouseForm";
 import {constants} from "../constants/constants";
-import '../App.css'
 
 /**
  * Represents a table of warehouses.
@@ -22,6 +21,7 @@ class Warehouses extends Component {
         EventEmitter.subscribe(constants.REMOVE_WAREHOUSE, (warehouse) => this.removeWarehouse(warehouse));
         EventEmitter.subscribe(constants.EDIT_WAREHOUSE, (warehouse) => this.handleClickEdit(warehouse));
         EventEmitter.subscribe(constants.UPDATE_WAREHOUSE, (warehouse) => this.handleEdit(warehouse));
+        EventEmitter.subscribe(constants.CREATE_WAREHOUSE, (warehouse) => this.handleCreate(warehouse));
     }
     componentWillUnmount() {
         EventEmitter.unsubscribe(constants.REMOVE_WAREHOUSE);
@@ -32,6 +32,7 @@ class Warehouses extends Component {
         return (
             <div className="container">
                 <div className="h3 text-center" style={{ marginTop: '1rem' }}>Current Warehouses</div>
+                <Button size="sm" className="mr-2" onClick={() => this.handleCreateClick()}>Add New Warehouse</Button>
                 <Table className="table table-responsive table-bordered" style={{ marginTop: '1rem' }}>
                     <thead>
                     <tr className="text-center">
@@ -46,8 +47,7 @@ class Warehouses extends Component {
                     <tbody>
                         {
                             this.state.warehouses.map((warehouse) =>
-                            <WarehouseRow className="blue-background"
-                                          warehouse={warehouse} key={warehouse.warehouseId}/>)
+                                <WarehouseRow warehouse={warehouse} key={warehouse.warehouseId}/>)
                         }
                     </tbody>
                 </Table>
@@ -91,7 +91,7 @@ class Warehouses extends Component {
             const updatedWarehouse = res.data;
             if (updatedWarehouse) {
                 const warehouses = [...this.state.warehouses];
-                const idx = warehouses.findIndex((wh) => (warehouse.id === wh.id) );
+                const idx = warehouses.findIndex((wh) => (warehouse.warehouseId === wh.warehouseId) );
                 if (idx) {
                     warehouses[idx] = updatedWarehouse;
                 }
@@ -115,9 +115,33 @@ class Warehouses extends Component {
      * @param warehouseId
      */
     removeWarehouse(warehouseId) {
+        this.clearWarehouseToEdit();
         WarehouseService.getWarehouseServiceInstance().deleteWarehouse(warehouseId).then(() => {
             // Here we would call an api to delete the warehouse , if there were one; mocking delete operation.
             this.setState({warehouses: this.state.warehouses.filter((warehouse) => {return warehouse.warehouseId !== warehouseId})});
+        });
+    }
+
+    handleCreateClick() {
+        this.setState({
+            ...this.state,
+            warehouseToEdit: {}
+        })
+    }
+
+    /**
+     *
+     * @param warehouse
+     */
+    handleCreate(warehouse) {
+        WarehouseService.getWarehouseServiceInstance().createWarehouse(warehouse).then((res) => {
+            const newWarehouse = res.data;
+            if (newWarehouse) {
+                const warehouses = [...this.state.warehouses];
+                warehouses.push(newWarehouse);
+                this.setState({warehouses});
+                this.clearWarehouseToEdit();
+            }
         });
     }
 

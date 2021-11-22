@@ -21,7 +21,7 @@ export default class WarehouseService {
      * @param warehouse is the updated warehouse object.
      */
     updateWarehouse(warehouse) {
-        return axios.patch(`http://localhost:8000/warehouses/${warehouse.id}`, warehouse);
+        return axios.patch(`http://localhost:8000/warehouses/${warehouse.warehouseId}`, warehouse);
     }
 
     /**
@@ -30,5 +30,14 @@ export default class WarehouseService {
      */
     deleteWarehouse(id) {
         return axios.delete(`http://localhost:8000/warehouses/${id}`);
+    }
+
+    /**
+     * Create a new warehouse in the db.
+     * @param warehouse
+     * @returns {Promise<AxiosResponse<any>>}
+     */
+    createWarehouse(warehouse) {
+        return axios.post(`http://localhost:8000/warehouses`, warehouse);
     }
 }

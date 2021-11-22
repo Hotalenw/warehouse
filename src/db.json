@@ -4,10 +4,11 @@
       "id": "01",
       "warehouseId": "01",
       "warehouseName": "Data Warehouse",
-      "warehouseDescription": "This is where we keep our data.",
+      "warehouseDescription": "This is where we keep our data",
       "warehouseAddress": {
         "buildingName": "Data Emporium",
         "streetLine1": "101 crazy way",
+        "streetLine2": "",
         "city": "Raleigh",
         "stateProvince": "NC",
         "zipPostalCode": "27538",
@@ -21,12 +22,12 @@
       "warehouseDescription": "Gotta have a beach supply warehouse.",
       "warehouseAddress": {
         "buildingName": "Beaches WH",
-        "streetLine1": "",
+        "streetLine1": "123 Wavy court",
         "streetLine2": "",
-        "city": "",
-        "stateProvince": "",
-        "zipPostalCode": "",
-        "country": ""
+        "city": "Nags Head ",
+        "stateProvince": "NC",
+        "zipPostalCode": "27907",
+        "country": "USA"
       }
     },
     {
@@ -36,12 +37,12 @@
       "warehouseDescription": "We've got the hats.",
       "warehouseAddress": {
         "buildingName": "New Building name",
-        "streetLine1": "101 thisway",
+        "streetLine1": "101 Top hat Ln",
         "streetLine2": "",
-        "city": "",
-        "stateProvince": "",
-        "zipPostalCode": "",
-        "country": ""
+        "city": "New York",
+        "stateProvince": "NY",
+        "zipPostalCode": "23343",
+        "country": "United States"
       }
     },
     {
@@ -73,6 +74,48 @@
         "zipPostalCode": "99994",
         "country": "USA"
       }
+    },
+    {
+      "warehouseName": "Kids trampoline Warehouse",
+      "warehouseDescription": "This is where we store all of our trampolines.",
+      "warehouseAddress": {
+        "buildingName": "Bouncy House",
+        "streetLine1": "123 bounce way",
+        "streetLine2": "",
+        "city": "Moyock",
+        "stateProvince": "NC",
+        "zipPostalCode": "27909",
+        "country": "USA"
+      },
+      "warehouseId": "WPWzwJN"
+    },
+    {
+      "warehouseName": "",
+      "warehouseDescription": "",
+      "warehouseAddress": {
+        "buildingName": "",
+        "streetLine1": "",
+        "streetLine2": "",
+        "city": "",
+        "stateProvince": "",
+        "zipPostalCode": "",
+        "country": ""
+      },
+      "warehouseId": "L0qFoE3"
+    },
+    {
+      "warehouseName": "",
+      "warehouseDescription": "",
+      "warehouseAddress": {
+        "buildingName": "",
+        "streetLine1": "",
+        "streetLine2": "",
+        "city": "",
+        "stateProvince": "",
+        "zipPostalCode": "",
+        "country": ""
+      },
+      "warehouseId": "zHb75V-"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 > npm install json-server
 
-> json-server --watch src/db.json --port 8000
+> json-server --watch src/db.json --port 8000 --id warehouseId
 
 
 ### Run local client

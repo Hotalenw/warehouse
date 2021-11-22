@@ -26,7 +26,11 @@ export class WarehouseForm extends Component {
         return (
             <div>
                 <div className="text-center">
-                    <span className="h5">Edit '{this.state.warehouse?.warehouseName}'</span>
+                    {
+                        this.state.warehouse.warehouseId ?
+                            <span className="h5">Edit '{this.state.warehouse?.warehouseName}'</span> :
+                            <span className="h5">Add New Warehouse</span>
+                    }
                 </div>
                 <div className="container">
                     <Form>
@@ -111,6 +115,11 @@ export class WarehouseForm extends Component {
                 }
             })
         })
-        EventEmitter.dispatch(constants.UPDATE_WAREHOUSE,this.state.warehouse);
+        // If there is a warehouseId we are editing, else this is a create.
+        if (this.state.warehouse.warehouseId) {
+            EventEmitter.dispatch(constants.UPDATE_WAREHOUSE,this.state.warehouse);
+        } else {
+            EventEmitter.dispatch(constants.CREATE_WAREHOUSE,this.state.warehouse);
+        }
     }
 }
