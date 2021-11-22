@@ -30,3 +30,12 @@ src/App.js,1/e/1e43fa63aecd2127be034b3fb9d4caa172275714
 src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
 G
 src/components/Pager.js,f/c/fce8bf8864605285f9805eaa4728a98232a775d5
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+L
+src/components/Warehouses.js,e/d/ed7ff19e6454d837bbc6e7e4ee4165fc215fc701
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+N
+src/components/WarehouseRow.js,d/1/d113d636ae67cb30759575ab85efe8b66dc3741b

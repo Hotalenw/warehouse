@@ -63,7 +63,7 @@
       "id": "08",
       "warehouseId": "08",
       "warehouseName": "Roller Warehouse",
-      "warehouseDescription": "This Roller Skating Warehouse",
+      "warehouseDescription": "This Roller Skating Warehouse.",
       "warehouseAddress": {
         "buildingName": "Roller Rink",
         "streetLine1": "1000 Maple lane",
@@ -71,7 +71,7 @@
         "city": "hoboken",
         "stateProvince": "Washingtion",
         "zipPostalCode": "99994",
-        "country": ""
+        "country": "USA"
       }
     }
   ]

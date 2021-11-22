@@ -1,6 +1,6 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import {Table} from 'reactstrap';
-import {Row} from "./Row";
+import {WarehouseRow} from "./WarehouseRow";
 import WarehouseService from "../services/WarehouseService";
 import {EventEmitter} from "../events";
 import {WarehouseForm} from "./WarehouseForm";
@@ -46,8 +46,8 @@ class Warehouses extends Component {
                     <tbody>
                         {
                             this.state.warehouses.map((warehouse) =>
-                            <Row className="blue-background"
-                                 warehouse={warehouse} key={warehouse.warehouseId}/>)
+                            <WarehouseRow className="blue-background"
+                                          warehouse={warehouse} key={warehouse.warehouseId}/>)
                         }
                     </tbody>
                 </Table>
@@ -96,7 +96,6 @@ class Warehouses extends Component {
                     warehouses[idx] = updatedWarehouse;
                 }
                 this.setState({warehouses});
-                console.log(this.state)
                 this.clearWarehouseToEdit();
             }
         });
