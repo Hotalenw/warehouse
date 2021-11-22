@@ -18,7 +18,7 @@ class Warehouses extends Component {
         // Lets get our warehouses from the api.
         this.getAllWarehouses();
         // Set up subscriptions.
-        EventEmitter.subscribe(constants.REMOVE_WAREHOUSE, (warehouse) => this.removeWarehouse(warehouse));
+        EventEmitter.subscribe(constants.REMOVE_WAREHOUSE, (warehouseId) => this.removeWarehouse(warehouseId));
         EventEmitter.subscribe(constants.EDIT_WAREHOUSE, (warehouse) => this.handleClickEdit(warehouse));
         EventEmitter.subscribe(constants.UPDATE_WAREHOUSE, (warehouse) => this.handleEdit(warehouse));
         EventEmitter.subscribe(constants.CREATE_WAREHOUSE, (warehouse) => this.handleCreate(warehouse));
@@ -115,10 +115,10 @@ class Warehouses extends Component {
      * @param warehouseId
      */
     removeWarehouse(warehouseId) {
-        this.clearWarehouseToEdit();
         WarehouseService.getWarehouseServiceInstance().deleteWarehouse(warehouseId).then(() => {
             // Here we would call an api to delete the warehouse , if there were one; mocking delete operation.
-            this.setState({warehouses: this.state.warehouses.filter((warehouse) => {return warehouse.warehouseId !== warehouseId})});
+            this.setState({warehouses: this.state.warehouses.filter((wh) => {return wh.warehouseId !== warehouseId})});
+            this.clearWarehouseToEdit();
         });
     }
 
@@ -130,7 +130,7 @@ class Warehouses extends Component {
     }
 
     /**
-     *
+     * Handles the create operation.
      * @param warehouse
      */
     handleCreate(warehouse) {

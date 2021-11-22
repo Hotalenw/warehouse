@@ -19,7 +19,8 @@ export class WarehouseForm extends Component {
         city: this.props.warehouse.warehouseAddress?.city ?? '',
         stateProvince: this.props.warehouse.warehouseAddress?.stateProvince ?? '',
         zipPostalCode: this.props.warehouse.warehouseAddress?.zipPostalCode ?? '',
-        country: this.props.warehouse.warehouseAddress?.country ?? ''
+        country: this.props.warehouse.warehouseAddress?.country ?? '',
+        submitDisabled: true
     }
 
     render() {
@@ -37,7 +38,7 @@ export class WarehouseForm extends Component {
                         <FormGroup className="field-grid">
                             <div>
                                 <Label name="name"> Warehouse Name</Label>
-                                <Input name="name" type="text" value={this.state.name} onChange={this.handleChange.bind(this)}/>
+                                <Input name="name" type="text" value={this.state.name} onChange={this.handleChange.bind(this)} required/>
                             </div>
                             <div>
                                 <Label name="description"> Warehouse Description</Label>
@@ -79,7 +80,7 @@ export class WarehouseForm extends Component {
                         </div>
                     </Form>
                     <div className="text-center" style={{margin: '1rem'}}>
-                        <Button className="btn" onClick={this.onSubmit.bind(this)} type="submit">Submit</Button>
+                        <Button className="btn" onClick={this.onSubmit.bind(this)} type="submit" disabled={this.state.name === ''}>Submit</Button>
                     </div>
                 </div>
             </div>
@@ -121,5 +122,9 @@ export class WarehouseForm extends Component {
         } else {
             EventEmitter.dispatch(constants.CREATE_WAREHOUSE,this.state.warehouse);
         }
+    }
+
+    disableSubmit() {
+        return this.state.name !== '';
     }
 }

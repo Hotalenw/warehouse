@@ -39,7 +39,7 @@
         "buildingName": "New Building name",
         "streetLine1": "101 Top hat Ln",
         "streetLine2": "",
-        "city": "New York",
+        "city": "Buffalo",
         "stateProvince": "NY",
         "zipPostalCode": "23343",
         "country": "United States"
@@ -90,8 +90,8 @@
       "warehouseId": "WPWzwJN"
     },
     {
-      "warehouseName": "",
-      "warehouseDescription": "",
+      "warehouseName": "Warehouse Name",
+      "warehouseDescription": "some description",
       "warehouseAddress": {
         "buildingName": "",
         "streetLine1": "",
@@ -101,10 +101,10 @@
         "zipPostalCode": "",
         "country": ""
       },
-      "warehouseId": "L0qFoE3"
+      "warehouseId": "PAf41n2"
     },
     {
-      "warehouseName": "",
+      "warehouseName": "Super secret warehouse",
       "warehouseDescription": "",
       "warehouseAddress": {
         "buildingName": "",
@@ -115,7 +115,7 @@
         "zipPostalCode": "",
         "country": ""
       },
-      "warehouseId": "zHb75V-"
+      "warehouseId": "7aPLQSv"
     }
   ]
 }
